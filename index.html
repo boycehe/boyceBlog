@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Boyce&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Boyce's Blog">
+<meta property="og:url" content="http://boycehe.com/index.html">
+<meta property="og:site_name" content="Boyce's Blog">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Boyce's Blog">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="Boyce&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Boyce&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hello</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://boycehe.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-iOS开发tip-二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/21/iOS开发tip-二/" class="article-date">
+  <time datetime="2015-12-20T16:39:06.000Z" itemprop="datePublished">Dec 21 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/21/iOS开发tip-二/">iOS开发tip(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>LanuchImage不显示问题:<br>有时候将相应的图片放入Assets.xcassets中的LaunchImage也没有显示出来，可能是在工程的TARGETS中General中的App Icons and Launch Images 没有设置号除了要将Launch Images Source设置为LaunchImage外，同时也要将Launch Screen File置为空,如下图所示<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSTips/launchImage.png" alt=""></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://boycehe.com/2015/12/21/iOS开发tip-二/" data-id="ciiesdabg0003x6zt6n52rl5n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-FixmeComment注释的的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/29/FixmeComment注释的的使用/" class="article-date">
+  <time datetime="2015-05-29T10:45:35.000Z" itemprop="datePublished">May 29 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/29/FixmeComment注释的的使用/">FixmeComment注释的的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天在看一个开源工程源代码时候，看到了类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//FIXME: XXXXXX</span><br></pre></td></tr></table></figure>
+<p>当时处于好奇就搜了下，发现一个网站介绍了这种注释方式：</p>
+<p><a href="http://c2.com/cgi/wiki?FixmeComment" target="_blank" rel="external">http://c2.com/cgi/wiki?FixmeComment</a></p>
+<p>发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？<br>我继续搜索，发现了一个脚本代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KEYWORDS=&#34;TODO:|FIXME:|\?\?\?:|\!\!\!:&#34;&#10;find $&#123;SRCROOT&#125; \( -name &#34;*.h&#34; -or -name &#34;*.m&#34; \) -print0 | \&#10;xargs -0 egrep --with-filename --line-number --only-matching &#34;($KEYWORDS).*\$&#34; | \&#10;perl -p -e &#34;s/($KEYWORDS)/ warning: \$1/&#34;</span><br></pre></td></tr></table></figure>
+<p>使用方式如下：</p>
+<hr>
+<ul>
+<li><p>选中TARGETS中Build Phases<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step1.png" alt=""></p>
+</li>
+<li><p>点击+号 选中 New Run Script Phase<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step2.png" alt=""></p>
+</li>
+<li><p>然后copy上边代码<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step3.png" alt=""><br>这样就可以了</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://boycehe.com/2015/05/29/FixmeComment注释的的使用/" data-id="ciiesdabk0006x6ztkuejo4f1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS推送诡异现象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/23/iOS推送诡异现象/" class="article-date">
+  <time datetime="2015-04-23T05:00:11.000Z" itemprop="datePublished">Apr 23 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/23/iOS推送诡异现象/">iOS推送诡异现象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天做iOS沙盒推送测试的时候，遇到一个诡异现象，就是如何也推送不过来。一开始我以为是证书问题，当时有两个开发者证书，名字也是一样的。我就重新打了一个证书发个后台开发人员，但是结果还是推送不过来。我也搞不明白了，最后我为了防止昏了头搞错了证书就把以前别人创建的开发者证书删除了，这时候，推送居然过来了。我猜想可能跟这两个一模一样的开发证书有关系，但是我也不太清楚这个原因是什么，现在比较忙，没有时间去研究背后的逻辑。这算事埋坑吧，以后填坑。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://boycehe.com/2015/04/23/iOS推送诡异现象/" data-id="ciiesdab70001x6zt1jco7sc7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Xcode6修改工程名称" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/19/Xcode6修改工程名称/" class="article-date">
+  <time datetime="2015-04-19T13:09:12.000Z" itemprop="datePublished">Apr 19 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/19/Xcode6修改工程名称/">Xcode6修改工程名称</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Xcode6修改名称很简单，基本上就两部就可以搞定。</p>
+<ul>
+<li>第一步如下图，将原有工程名称修改你想要修改的名称<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-2%402x.png" alt=""></li>
+<li>第二步如下边几张图<br>点击Rename<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-3%402x.png" alt=""><br>点击Enable<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-4%402x.png" alt=""><br>选择Manage Schemes<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-5%402x.png" alt=""><br>点击移除符号<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-6%402x.png" alt=""><br>点击Delete<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-7%402x.png" alt=""><br>然后点击New Scheme<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-8%402x.png" alt=""><br>点击OK<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSChangeProjectName/QQ20150419-9%402x.png" alt=""></li>
+</ul>
+<p>最后重新build就可以了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://boycehe.com/2015/04/19/Xcode6修改工程名称/" data-id="ciiesdabi0005x6ztwpprfnfm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS自动打包分发测试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/11/iOS自动打包分发测试/" class="article-date">
+  <time datetime="2015-04-11T02:38:41.000Z" itemprop="datePublished">Apr 11 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/11/iOS自动打包分发测试/">iOS自动打包分发测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> Xcode 打包虽然非常方便，但是却不能自动化，而每次打包的步骤几乎相同。每次打包的时间虽然不多，但日积月累下来也是一个可观的时间。同时对许多公司的测试以及产品经理来讲，希望能够及时了解到开发情况。所以，就需要经常分发测试包给其他的童鞋。正好这几天一直用的<a href="http://www.pgyer.com/" target="_blank" rel="external">蒲公英</a>的内测分发平台，而蒲公英也开放了API。所以就产生了，把iOS打包和分发结合在一起，这样就可以大大节约时间。</p>
+<ul>
+<li>####iOS自动打包原理<br> 这个可以参考这篇Blog <a href="http://www.cnblogs.com/sunshine-anycall/p/4161233.html" target="_blank" rel="external">http://www.cnblogs.com/sunshine-anycall/p/4161233.html</a> 只要按照上边步骤开始做，基本就完成了一半了。<br>但是这篇博客的只是告诉如何自动打包，如何自动分发测试却没有讲。下边我主要讲下如何利用蒲公英做到自动分发测试。</li>
+<li>####iOS自动分发测试<br>在上边blog的python脚本上，我增加了两个个函数首先：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import requests&#10;import json</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果你的python没有安装requests,请到<a href="http://docs.python-requests.org/en/latest/user/install/#install" target="_blank" rel="external">http://docs.python-requests.org/en/latest/user/install/#install</a> 安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def resultJson(jsonResult):&#10;    resultCode = jsonResult[&#39;code&#39;]&#10;    if resultCode == 0:&#10;      downUrl = downBaseURL +&#34;/&#34;+jsonResult[&#39;data&#39;][&#39;appShortcutUrl&#39;]&#10;      print &#34;Upload Success&#34;&#10;      print &#34;DownUrl is:&#34;+downUrl&#10;    else:&#10;        print &#34;Upload Fail!&#34;&#10;        print &#34;Reason:&#34;+jsonResult[&#39;message&#39;]&#10;&#10;&#10;def uploadIPAToPgyer(ipaDirectory):&#10;    uploadUrl = pgyerRequestBaseURL+&#34;?&#34;+&#34;uKey=&#34;+pgyuKey+&#34;&#38;&#34;+&#34;_api_key=&#34;+APIKey+&#34;&#38;&#34;+&#34;publishRange=&#34;+&#34;2&#34;+&#34;&#38;&#34;+&#34;isPublishToPublic=&#34;+&#34;2&#34;&#10;    files = &#123;&#39;file&#39;: open(ipaDirectory, &#39;rb&#39;)&#125;&#10;    headers = &#123;&#39;enctype&#39;:&#39;multipart/form-data&#39;&#125;&#10;    payload = &#123;&#39;uKey&#39;:pgyuKey,&#39;_api_key&#39;:APIKey,&#39;publishRange&#39;:&#39;2&#39;,&#39;isPublishToPublic&#39;:&#39;2&#39;&#125;&#10;    print &#34;uploading....&#34;&#10;    r = requests.post(uploadUrl,data = payload ,files=files,headers=headers)&#10;    if r.status_code == requests.codes.ok:&#10;         result = r.json()&#10;         resultJson(result)&#10;    else:&#10;        print &#39;HTTPError,Code:&#39;+r.status_code</span><br></pre></td></tr></table></figure></p>
+<p>uploadIPAToPgyer(ipaDirectory) 是ipaDirectory的绝对路径，这个函数主要是讲ipa上传到蒲公英。<br>而resultJson(jsonResult) 主要是用来分析接口返回的json数据</p>
+<p>至此基本就算事大工搞成了，对了这个是<a href="https://github.com/boycehe/iOSAutoDistribute" target="_blank" rel="external">源码</a>的地址，大家只需要把自己的UserKey 和APIKey修改成自己的就可以运行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python iOSAutoDistribute.py --target=tt --config=DistributeBuild &#10;-x /Users/username/Desktop/yourProjectName /Users/username/Desktop/DistributeBuild</span><br></pre></td></tr></table></figure></p>
+<p>如果测试人员比较多的话，最好有个通知功能，那么我们可以添加一个发送邮件的一个模块，在ipa包上传成功后，发送邮件通知相关的测试人员。代码如下：<br>导入相关的模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from email.MIMEText import MIMEText</span><br></pre></td></tr></table></figure></p>
+<p>相关的发送设置如下，mailto_list发送列表<br>mail_host 发送的主机域名<br>mail_user 用户名<br>mail_pwd 用户密码<br>mail_postfix 邮箱后缀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mailto_list=[&#34;xxxxx@gmail.com&#34;]&#10;mail_host=&#34;smtp.gmail.com&#34;&#10;mail_user= &#34;xxxxx&#34;&#10;mail_pwd = &#34;xxxxx;&#34;&#10;mail_postfix=&#34;gmail.com&#34;</span><br></pre></td></tr></table></figure>
+<p>发送email函数<br>to_list 发送邮件地址列表 如上，传入mailto_list<br>sub 邮件主题<br>content 邮件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def send_mail(to_list,sub,content):&#10;        me = &#34;hello&#34;+&#34;&#60;&#34;+mail_user+&#34;@&#34;+mail_postfix+&#34;&#62;&#34;&#10;        msg = MIMEText(content)&#10;        msg[&#39;Subject&#39;] = sub&#10;        msg[&#39;From&#39;] = me&#10;        msg[&#39;To&#39;] = &#34;;&#34;.join(to_list)&#10;        try:&#10;            s = smtplib.SMTP()&#10;            s.connect(mail_host)&#10;            s.login(mail_user,mail_pwd)&#10;            s.sendmail(me,to_list,str(msg))&#10;            s.close()&#10;            return True&#10;        except Exception,e:&#10;            print str(e)&#10;            return False</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://boycehe.com/2015/04/11/iOS自动打包分发测试/" data-id="ciiesdab00000x6ztbeu1ltd9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS开发中的Tips-一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/23/iOS开发中的Tips-一/" class="article-date">
+  <time datetime="2015-03-23T10:49:59.000Z" itemprop="datePublished">Mar 23 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/23/iOS开发中的Tips-一/">iOS开发中的Tips(一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转自<a href="http://www.jianshu.com/p/221507eb8590" target="_blank" rel="external">kissGod的简书</a></p>
+<ul>
+<li><p>####如何快速的查看一段代码的执行时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define TICK   NSDate *startTime = [NSDate date]&#10;#define TOCK   NSLog(@&#34;Time: %f&#34;, -[startTime timeIntervalSinceNow])</span><br></pre></td></tr></table></figure>
+<p> 在想要查看执行时间的代码的地方进行这么处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TICK&#10;//do your work here&#10;TOCK</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>####如何快速查看一个函数的调用次数，且不添加一句代码。 如下图<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSTips/1426819836546569.jpg" alt=""><br>这种方法适合于一个if方法，一个for循环，而且不会中断程序，切不需要加一句代码。但是一定要记得选中下面的automatically continue after evaluting actions;</p>
+</li>
+<li><p>####在使用view的缩放的时候，layer.border.width随着view的放大，会出现锯齿化的问题，解决这个问题需要设置这个属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.layer.allowsEdgeAntialiasing = YES;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>####instrument中time profile中的self, #self,%self各代表什么 ?<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSTips/1426819891162281.jpg" alt=""><br>下面引用了一下网上的具体内容</p>
+</li>
+</ul>
+<blockquote>
+<p>“Self is “The number of times the symbol calls itself.” according to the Apple Docs on the Time Profiler.<br>From the way the numbers look though, it seems self is the summed duration of samples that had this symbol at the bottom of its stack trace. That would make:<br>self: the number of samples where this symbol was at the bottom of the stack trace<br>% self: the percent of self samples relative to total samples of currently displayed call tree<br>(eg - #self / total samples).<br>So this wouldn’t tell you how many times a method was called. But it would give you an idea how much time is spent in a method or lower in the call tree.”</p>
+</blockquote>
+<ul>
+<li>####如何快速添加一个全局异常断点，（一步顶三步）。和添加一个symbloic断点，（一步还是顶三步）添加一个断点不使用鼠标<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSTips/1426819934867664.gif" alt=""><br>看到图了吧，加这些断点完全不需要动一下鼠标（恕我吹牛B了），加单独断点的时候动了下鼠标，但那是我故意让你们看到我是有鼠标的。</li>
+</ul>
+<p>首先All Exception断点是我们很常用的，这个我是这样用一个快捷键做到的！通过改键command +p 为加异常断点的，要说怎么改，翻我以前博客去！<br>然后加symbloic的快捷键为commnamd + option + \<br>加一个单独一行断点的快捷键为command + \</p>
+<ul>
+<li>####在iOS开发中我们在和产品和设计沟通的时候我们经常需要截取手机的屏幕或者模拟器上的屏幕，我们用手机可能会使用 Home 键 + 开机键，然后再通过 iPhoto 或者在手机用 qq 传过去，但是我教大家一个方法直接使用快捷键截取手机上的图到电脑桌面上。<br>具体方法见下图 ：<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSTips/1426820096813789.jpg" alt=""></li>
+</ul>
+<p>在 Xcode的 debug菜单中找到viewDebugging,即使当前程序没有运行，也可以直接截取手机上的图片直接到桌面。（哈哈哈这样再不需要TM的按TM的手机上的按键再用 iPhoto拷贝到桌面了）。年轻人你以为这样就完了吗！？你还是太稚嫩啊，谁TM的想找到这个debug菜单再找到下面的一堆东西，当然要改成快捷键了，如何做看下图。<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSTips/1426820115340471.jpg" alt=""><br>看到这个血淋漓的红色的箭头了嘛，你首先找到 debug 的快捷键菜单项，在把它改成 ?+?这个，这时候有冲突了怎么办？你不知道有没有影响到其他快捷键怎么办，小傻瓜，改呗！把以前的这个功能去掉?+?（ps:以前的就是 show complete list 如同点击一个?一个效果，那你还要它做嘛啊?），为什么改成这个份听哥的，你改成这个绝壁会用着特别爽。（好了以后要给产品还是设计发图分分钟的事情了~~）</p>
+<ul>
+<li>####iOS调试技巧只显示图片的对齐尺寸和 frame。</li>
+</ul>
+<p>我记得以前一个说显示对齐尺寸的，他是这么做的：</p>
+<p>“在应项目的Edit Scheme中设置一个启动参数 UIViewShowAlignmentRects并将参数值设置为YES，可以让程序在运行时显示视图的对齐矩阵（alignment rectangle）。”</p>
+<p>我当时看完就不屑一顾，这么复杂谁用啊。你们真的以为我再装b嘛，好吧，你们猜对了，我确实在装b,你们看下面的效果就知道我为什么在装b了。<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/iOSTips/1426820189693015.gif" alt=""><br>可能我图片切换的比较快，效果你们没看的明显。你们可以自己试下，这个可以随时切换是否显示ShowAlignmentRect，或者每一个控件的尺寸包括系统的控件（譬如系统的 uibutton 它会显示内部的 imageview 的尺寸和 label 的尺寸然后用不同的颜色区别，xcode 颜色区分的还是相当美观的）</p>
+<p>这尼玛可是大杀器了，有了这个你的控件的大小位置是否显示都根本不用我前面所说的 lldb 了，而且方便快捷，你问我是怎么做的，我可没配置辣么多的一对参数，我也懒得记，当然我是用快捷键了！细心的同学可能会注意到前面的 截图viewDebuging中有showViewFrame 和ShowAlignmentRects,当然点击这些菜单就会出现我这些效果了，我当然又是改快捷键了，我时间很宝贵的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://boycehe.com/2015/03/23/iOS开发中的Tips-一/" data-id="ciiesdabd0002x6zt206s8dp4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS国际化(Xcode5)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/23/iOS国际化(Xcode5)/" class="article-date">
+  <time datetime="2015-01-23T10:49:59.000Z" itemprop="datePublished">Jan 23 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/23/iOS国际化(Xcode5)/">iOS国际化(Xcode5)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境：<br><strong>硬件</strong>：Macbook Pro</p>
+<p><strong>软件</strong>：Xcode 5.1<br><strong>代码</strong>：<a href="https://github.com/boycehe/iOS---" target="_blank" rel="external">https://github.com/boycehe/iOS---</a></p>
+<p>第一步：如图所示：右击选择 New File<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011149578909003.png" alt=""><br>第二步：选择Resource，新建一个String File文件<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011154037811448.png" alt=""><br>第三步：名字必须为Localizable,点击create<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011155582184221.png" alt=""><br>第四步：选择工程<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011157508128121.png" alt=""><br>第五步：选择语言<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011159309064876.png" alt=""><br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011200563756398.png" alt=""><br>第六步：设置<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011207512344989.png" alt=""><br>第七步：既然是国际化嘛，肯定是一个以上语言。那么在这里增加相应的语言。<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011210382186709.png" alt=""><br>至此程序内的语言搞定了。等等，还有app名字如何国际化呢？先别急，且看下图<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011213148282263.png" alt=""><br>注意到了吗？Bundle display name ${PRODUCT_NAME}  还有旁边的CFBundleDisplayName，这时只要将 </p>
+<p>CFBundleDisplayName =”测试”; 添加到InfoPlist.strings下相应的文件。</p>
+<p>PS:细心的网友可能发现我得步骤跟网络上其他的教程步骤还有点不一样，这是因为我在xcode5.1下按照他们的步骤不知道为啥老不成功，所以我稍微修改下，成功了，我不知道是不是跟Xcode5.1有关。没有仔细去研究。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://boycehe.com/2015/01/23/iOS国际化(Xcode5)/" data-id="ciiesdabh0004x6ztne1incpe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/12/21/iOS开发tip-二/">iOS开发tip(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/29/FixmeComment注释的的使用/">FixmeComment注释的的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/23/iOS推送诡异现象/">iOS推送诡异现象</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/19/Xcode6修改工程名称/">Xcode6修改工程名称</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/11/iOS自动打包分发测试/">iOS自动打包分发测试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

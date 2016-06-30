@@ -6,7 +6,8 @@
   <title>iOS中的Copy方法研究 | Boyce&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="#iOS中的Copy方法研究
-##深Copy和浅Copy深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：
+##深Copy和浅Copy
+深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：
 
 
 ###iOS中的Copy关键字
@@ -15,13 +16,14 @@ NSString 和 NSMutableString
 直觉而言，Copy属于深Copy，其实不然。可以看下边的例子
 
 
-1N">
+1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS中的Copy方法研究">
 <meta property="og:url" content="http://boycehe.com/2016/05/02/DeepCopyAndShallowCopy/index.html">
 <meta property="og:site_name" content="Boyce's Blog">
 <meta property="og:description" content="#iOS中的Copy方法研究
-##深Copy和浅Copy深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：
+##深Copy和浅Copy
+深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：
 
 
 ###iOS中的Copy关键字
@@ -30,14 +32,15 @@ NSString 和 NSMutableString
 直觉而言，Copy属于深Copy，其实不然。可以看下边的例子
 
 
-1N">
+1">
 <meta property="og:image" content="https://github.com/boycehe/BlogImageSource/blob/master/20160426/Deep_Copy.png?raw=true">
 <meta property="og:image" content="https://github.com/boycehe/BlogImageSource/blob/master/20160426/Qian_Copy.png?raw=true">
-<meta property="og:updated_time" content="2016-05-02T15:23:03.000Z">
+<meta property="og:updated_time" content="2016-05-03T01:30:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS中的Copy方法研究">
 <meta name="twitter:description" content="#iOS中的Copy方法研究
-##深Copy和浅Copy深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：
+##深Copy和浅Copy
+深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：
 
 
 ###iOS中的Copy关键字
@@ -46,7 +49,7 @@ NSString 和 NSMutableString
 直觉而言，Copy属于深Copy，其实不然。可以看下边的例子
 
 
-1N">
+1">
   
     <link rel="alternative" href="/atom.xml" title="Boyce&#39;s Blog" type="application/atom+xml">
   
@@ -119,7 +122,8 @@ NSString 和 NSMutableString
     <div class="article-entry" itemprop="articleBody">
       
         <p>#iOS中的Copy方法研究</p>
-<p>##深Copy和浅Copy<br>深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：</p>
+<p>##深Copy和浅Copy</p>
+<p>深Copy：深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。浅Copy：是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同。如下图所示：</p>
 <p><img src="https://github.com/boycehe/BlogImageSource/blob/master/20160426/Deep_Copy.png?raw=true" alt="深Copy"></p>
 <p><img src="https://github.com/boycehe/BlogImageSource/blob/master/20160426/Qian_Copy.png?raw=true" alt="浅Copy"></p>
 <p>###iOS中的Copy关键字</p>
@@ -161,7 +165,7 @@ NSString 和 NSMutableString
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://boycehe.com/2016/05/02/DeepCopyAndShallowCopy/" data-id="cinq5ob2b0007ybzt4pspd5gg" class="article-share-link">Share</a>
+      <a data-url="http://boycehe.com/2016/05/02/DeepCopyAndShallowCopy/" data-id="ciq2doa7p0008dvztxuohbpzj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,6 +173,15 @@ NSString 和 NSMutableString
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/06/30/懒/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          懒
+        
+      </div>
+    </a>
   
   
     <a href="/2015/12/21/iOS开发tip-二/" id="article-nav-older" class="article-nav-link-wrap">
@@ -195,7 +208,7 @@ NSString 和 NSMutableString
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -205,6 +218,10 @@ NSString 和 NSMutableString
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/06/30/懒/">懒</a>
+          </li>
         
           <li>
             <a href="/2016/05/02/DeepCopyAndShallowCopy/">iOS中的Copy方法研究</a>
@@ -220,10 +237,6 @@ NSString 和 NSMutableString
         
           <li>
             <a href="/2015/04/23/iOS推送诡异现象/">iOS推送诡异现象</a>
-          </li>
-        
-          <li>
-            <a href="/2015/04/19/Xcode6修改工程名称/">Xcode6修改工程名称</a>
           </li>
         
       </ul>

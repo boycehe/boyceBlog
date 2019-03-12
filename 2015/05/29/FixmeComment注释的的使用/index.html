@@ -33,19 +33,19 @@
 <link rel="canonical" href="http://boycehe.com/2015/05/29/FixmeComment注释的的使用/"/>
 
 
-<meta name="description" content="前几天在看一个开源工程源代码时候，看到了类似 1//FIXME: XXXXXX 当时处于好奇就搜了下，发现一个网站介绍了这种注释方式： http://c2.com/cgi/wiki?FixmeComment 发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？ 我继续搜索，发现了一个脚本代码如下 1234KEYWORDS=&amp;quot;TODO:|FIXME:|\?\?\?:|\!\">
+<meta name="description" content="前几天在看一个开源工程源代码时候，看到了类似 1//FIXME: XXXXXX 当时处于好奇就搜了下，发现一个网站介绍了这种注释方式： http://c2.com/cgi/wiki?FixmeComment 发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？我继续搜索，发现了一个脚本代码如下 1234KEYWORDS=&amp;quot;TODO:|FIXME:|\?\?\?:|\!\!">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FixmeComment注释的的使用">
 <meta property="og:url" content="http://boycehe.com/2015/05/29/FixmeComment注释的的使用/index.html">
 <meta property="og:site_name" content="Boyce&#39;s Blog">
-<meta property="og:description" content="前几天在看一个开源工程源代码时候，看到了类似 1//FIXME: XXXXXX 当时处于好奇就搜了下，发现一个网站介绍了这种注释方式： http://c2.com/cgi/wiki?FixmeComment 发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？ 我继续搜索，发现了一个脚本代码如下 1234KEYWORDS=&amp;quot;TODO:|FIXME:|\?\?\?:|\!\">
+<meta property="og:description" content="前几天在看一个开源工程源代码时候，看到了类似 1//FIXME: XXXXXX 当时处于好奇就搜了下，发现一个网站介绍了这种注释方式： http://c2.com/cgi/wiki?FixmeComment 发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？我继续搜索，发现了一个脚本代码如下 1234KEYWORDS=&amp;quot;TODO:|FIXME:|\?\?\?:|\!\!">
 <meta property="og:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step3.png">
 <meta property="og:updated_time" content="2015-05-29T11:12:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FixmeComment注释的的使用">
-<meta name="twitter:description" content="前几天在看一个开源工程源代码时候，看到了类似 1//FIXME: XXXXXX 当时处于好奇就搜了下，发现一个网站介绍了这种注释方式： http://c2.com/cgi/wiki?FixmeComment 发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？ 我继续搜索，发现了一个脚本代码如下 1234KEYWORDS=&amp;quot;TODO:|FIXME:|\?\?\?:|\!\">
+<meta name="twitter:description" content="前几天在看一个开源工程源代码时候，看到了类似 1//FIXME: XXXXXX 当时处于好奇就搜了下，发现一个网站介绍了这种注释方式： http://c2.com/cgi/wiki?FixmeComment 发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？我继续搜索，发现了一个脚本代码如下 1234KEYWORDS=&amp;quot;TODO:|FIXME:|\?\?\?:|\!\!">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step1.png">
 
 
@@ -131,27 +131,19 @@
     
             <div class="post-content">
             <p>前几天在看一个开源工程源代码时候，看到了类似</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//FIXME: XXXXXX</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//FIXME: XXXXXX</div></pre></td></tr></table></figure>
 <p>当时处于好奇就搜了下，发现一个网站介绍了这种注释方式：</p>
-<p>http://c2.com/cgi/wiki?FixmeComment</p>
-<p>发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？
-我继续搜索，发现了一个脚本代码如下</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">KEYWORDS=&quot;TODO:|FIXME:|\?\?\?:|\!\!\!:&quot;</div><div class="line">find $&#123;SRCROOT&#125; \( -name &quot;*.h&quot; -or -name &quot;*.m&quot; \) -print0 | \</div><div class="line">xargs -0 egrep --with-filename --line-number --only-matching &quot;($KEYWORDS).*\$&quot; | \</div><div class="line">perl -p -e &quot;s/($KEYWORDS)/ warning: \$1/&quot;</div></pre></td></tr></table></figure></p>
+<p><a href="http://c2.com/cgi/wiki?FixmeComment" target="_blank" rel="noopener">http://c2.com/cgi/wiki?FixmeComment</a></p>
+<p>发现这种注释还是挺方便的，但是在Xcode上如何使用这种注释方式呢？<br>我继续搜索，发现了一个脚本代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">KEYWORDS=&quot;TODO:|FIXME:|\?\?\?:|\!\!\!:&quot;</div><div class="line">find $&#123;SRCROOT&#125; \( -name &quot;*.h&quot; -or -name &quot;*.m&quot; \) -print0 | \</div><div class="line">xargs -0 egrep --with-filename --line-number --only-matching &quot;($KEYWORDS).*\$&quot; | \</div><div class="line">perl -p -e &quot;s/($KEYWORDS)/ warning: \$1/&quot;</div></pre></td></tr></table></figure>
 <p>使用方式如下：</p>
 <hr>
 <ul>
-<li>
-<p>选中TARGETS中Build Phases
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step1.png" alt=""></p>
+<li><p>选中TARGETS中Build Phases<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step1.png" alt=""></p>
 </li>
-<li>
-<p>点击+号 选中 New Run Script Phase
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step2.png" alt=""></p>
+<li><p>点击+号 选中 New Run Script Phase<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step2.png" alt=""></p>
 </li>
-<li>
-<p>然后copy上边代码
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step3.png" alt="">
-这样就可以了</p>
+<li><p>然后copy上边代码<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/FixmeComment/step3.png" alt=""><br>这样就可以了</p>
 </li>
 </ul>
 

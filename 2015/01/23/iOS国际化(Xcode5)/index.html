@@ -33,12 +33,12 @@
 <link rel="canonical" href="http://boycehe.com/2015/01/23/iOS国际化(Xcode5)/"/>
 
 
-<meta name="description" content="如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境： 硬件：Macbook Pro 软件：Xcode 5.1 代码：https://github.com/boycehe/iOS--- 第一步：如图所示：右击选择 New File  第二步：选择Resource，新建一个String File文件  第三步：名字必须为Localizable,点击c">
+<meta name="description" content="如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境：硬件：Macbook Pro 软件：Xcode 5.1代码：https://github.com/boycehe/iOS--- 第一步：如图所示：右击选择 New File第二步：选择Resource，新建一个String File文件第三步：名字必须为Localizable,点击create第">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS国际化(Xcode5)">
 <meta property="og:url" content="http://boycehe.com/2015/01/23/iOS国际化(Xcode5)/index.html">
 <meta property="og:site_name" content="Boyce&#39;s Blog">
-<meta property="og:description" content="如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境： 硬件：Macbook Pro 软件：Xcode 5.1 代码：https://github.com/boycehe/iOS--- 第一步：如图所示：右击选择 New File  第二步：选择Resource，新建一个String File文件  第三步：名字必须为Localizable,点击c">
+<meta property="og:description" content="如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境：硬件：Macbook Pro 软件：Xcode 5.1代码：https://github.com/boycehe/iOS--- 第一步：如图所示：右击选择 New File第二步：选择Resource，新建一个String File文件第三步：名字必须为Localizable,点击create第">
 <meta property="og:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011149578909003.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011154037811448.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011155582184221.png">
@@ -51,7 +51,7 @@
 <meta property="og:updated_time" content="2015-04-11T03:11:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS国际化(Xcode5)">
-<meta name="twitter:description" content="如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境： 硬件：Macbook Pro 软件：Xcode 5.1 代码：https://github.com/boycehe/iOS--- 第一步：如图所示：右击选择 New File  第二步：选择Resource，新建一个String File文件  第三步：名字必须为Localizable,点击c">
+<meta name="twitter:description" content="如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境：硬件：Macbook Pro 软件：Xcode 5.1代码：https://github.com/boycehe/iOS--- 第一步：如图所示：右击选择 New File第二步：选择Resource，新建一个String File文件第三步：名字必须为Localizable,点击create第">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011149578909003.png">
 
 
@@ -136,29 +136,10 @@
 
     
             <div class="post-content">
-            <p>如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境：
-<strong>硬件</strong>：Macbook Pro</p>
-<p><strong>软件</strong>：Xcode 5.1
-<strong>代码</strong>：https://github.com/boycehe/iOS---</p>
-<p>第一步：如图所示：右击选择 New File
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011149578909003.png" alt="">
-第二步：选择Resource，新建一个String File文件
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011154037811448.png" alt="">
-第三步：名字必须为Localizable,点击create
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011155582184221.png" alt="">
-第四步：选择工程
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011157508128121.png" alt="">
-第五步：选择语言
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011159309064876.png" alt="">
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011200563756398.png" alt="">
-第六步：设置
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011207512344989.png" alt="">
-第七步：既然是国际化嘛，肯定是一个以上语言。那么在这里增加相应的语言。
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011210382186709.png" alt="">
-至此程序内的语言搞定了。等等，还有app名字如何国际化呢？先别急，且看下图
-<img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011213148282263.png" alt="">
-注意到了吗？Bundle display name ${PRODUCT_NAME}  还有旁边的CFBundleDisplayName，这时只要将</p>
-<p>CFBundleDisplayName =&quot;测试&quot;; 添加到InfoPlist.strings下相应的文件。</p>
+            <p>如何将你的app内的语言可以根据系统语言切换而切换呢？这是本篇所要解决的问题。废话先不说，上软硬件环境：<br><strong>硬件</strong>：Macbook Pro</p>
+<p><strong>软件</strong>：Xcode 5.1<br><strong>代码</strong>：<a href="https://github.com/boycehe/iOS---" target="_blank" rel="noopener">https://github.com/boycehe/iOS---</a></p>
+<p>第一步：如图所示：右击选择 New File<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011149578909003.png" alt=""><br>第二步：选择Resource，新建一个String File文件<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011154037811448.png" alt=""><br>第三步：名字必须为Localizable,点击create<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011155582184221.png" alt=""><br>第四步：选择工程<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011157508128121.png" alt=""><br>第五步：选择语言<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011159309064876.png" alt=""><br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011200563756398.png" alt=""><br>第六步：设置<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011207512344989.png" alt=""><br>第七步：既然是国际化嘛，肯定是一个以上语言。那么在这里增加相应的语言。<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011210382186709.png" alt=""><br>至此程序内的语言搞定了。等等，还有app名字如何国际化呢？先别急，且看下图<br><img src="https://raw.githubusercontent.com/boycehe/BlogImageSource/master/xcode5Localization/011213148282263.png" alt=""><br>注意到了吗？Bundle display name ${PRODUCT_NAME}  还有旁边的CFBundleDisplayName，这时只要将 </p>
+<p>CFBundleDisplayName =”测试”; 添加到InfoPlist.strings下相应的文件。</p>
 <p>PS:细心的网友可能发现我得步骤跟网络上其他的教程步骤还有点不一样，这是因为我在xcode5.1下按照他们的步骤不知道为啥老不成功，所以我稍微修改下，成功了，我不知道是不是跟Xcode5.1有关。没有仔细去研究。</p>
 
             </div>
